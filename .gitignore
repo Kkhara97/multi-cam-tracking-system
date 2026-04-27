@@ -1,0 +1,26 @@
+# Model weights and binaries
+*.pt
+*.bin
+*.param
+*.onnx
+*.pth
+
+# Datasets
+scr/data/
+*.json
+*.txt
+
+# Training outputs
+runs/
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,7 @@
+# yolo3c.yaml
+
+train: data_split/train/images
+val: data_split/val/images
+
+nc: 3
+names: ['person', 'face', 'AGV']

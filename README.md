@@ -1,6 +1,6 @@
 # Multi-Camera Person Tracking System
 
-Real-time person tracking pipeline on Raspberry Pi 5. Single-camera system is complete and deployed. Phase 2 extends to two cameras with cross-camera identity association.
+Real-time person tracking pipeline on Raspberry Pi 5.
 
 **Stack:** YOLOv5n NCNN · OSNet Re-ID NCNN · Kalman tracker · SimplePose NCNN · MQTT · C++17
 
@@ -10,7 +10,7 @@ Real-time person tracking pipeline on Raspberry Pi 5. Single-camera system is co
 
 | Component | Model |
 |-----------|-------|
-| Edge node | Raspberry Pi 5 (×2 for Phase 2) |
+| Edge node | Raspberry Pi 5 |
 | Camera 1 | UGREEN USB camera |
 | Camera 2 | NexiGo USB camera |
 | Server | Lenovo Legion laptop |
@@ -30,7 +30,7 @@ multi-cam-tracking-system/
 │   └── results/         # Training CSVs and plots (yolov5n_3c3, yolov5s_3c_ft)
 ├── reid/                # OSNet TorchScript export script
 ├── calibration/         # Camera calibration script and YAML outputs
-├── server/              # MQTT subscriber + display script (Phase 2)
+├── server/              # MQTT subscriber + display script
 └── results/             # Pipeline benchmark CSVs, Re-ID baseline
 ```
 
@@ -56,7 +56,7 @@ Place `.bin` and `.param` files in `pi_node/models/` before building.
 
 ### Dataset
 
-**People + faces:** [faces4coco](https://github.com/matteorr/coco-analyze) — COCO images with face annotations layered on top.
+**People + faces:** [faces4coco](https://github.com/ACI-Institute/faces4coco) — COCO images with face annotations layered on top.
 
 **AGV class:** 7 Roboflow Universe datasets merged into a single AGV class:
 
@@ -80,11 +80,9 @@ Place `.bin` and `.param` files in `pi_node/models/` before building.
 | Run | Backbone | Epochs | Precision | Recall | mAP@0.5:0.95 | Status |
 |-----|----------|--------|-----------|--------|--------------|--------|
 | yolov5n_3c3 | YOLOv5n | 200 | 0.9049 | 0.8475 | 0.6394 | ✅ Deployed on Pi (NCNN) |
-| yolov5s_3c_ft | YOLOv5s | 120 | 0.9237 | 0.8559 | 0.6721 | ⏳ Phase 2 (not yet converted to NCNN) |
+| yolov5s_3c_ft | YOLOv5s | 120 | 0.9237 | 0.8559 | 0.6721 | not yet converted to NCNN |
 
 Full result plots and CSVs: `training/results/`
-
-> The deployed model is YOLOv5n (nano). YOLOv5s achieves higher mAP but has not been converted to NCNN and benchmarked on Pi hardware — nano vs small latency comparison is a Phase 2 task.
 
 ### Training Config
 

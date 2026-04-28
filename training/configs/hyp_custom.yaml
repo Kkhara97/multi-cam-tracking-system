@@ -1,3 +1,7 @@
+# hyp_custom.yaml
+# Custom hyperparameters for YOLOv5 fine-tuning on the 3-class dataset.
+# Key changes from defaults: cls=0.3, obj=0.7, copy_paste=0.1, degrees=5.0
+
 lr0: 0.01
 lrf: 0.1
 momentum: 0.937

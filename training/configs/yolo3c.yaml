@@ -1,4 +1,6 @@
 # yolo3c.yaml
+# Custom 3-class dataset config for YOLOv5 training.
+# Classes: 0=person, 1=face, 2=AGV
 
 train: data_split/train/images
 val: data_split/val/images
